@@ -19,6 +19,11 @@
 #   1.  ENVIRONMENT CONFIGURATION
 #   -------------------------------
 
+#   Change Prompt
+#   ------------------------------------------------------------
+#    export PS1="________________________________________________________________________________\n| \w @ \h (\u) \n| => "
+#    export PS2="| => "
+
 #   Set Paths
 #   ------------------------------------------------------------
     export PATH="$PATH:/usr/local/bin/"
@@ -300,15 +305,29 @@ httpHeaders () { /usr/bin/curl -I -L $@ ; }             # httpHeaders:      Grab
 
 export PATH=~/.local/bin:$PATH
 
+#export JAVA_7_HOME=$(/usr/libexec/java_home -v 
 export JAVA_8_HOME=$(/usr/libexec/java_home -v 1.8.0_162) 
 export JAVA_9_HOME=$(/usr/libexec/java_home -v 9) 
 export JAVA_10_HOME=$(/usr/libexec/java_home -v 10) 
+export JAVA_11_HOME=$(/usr/libexec/java_home -v 11)
+export JAVA_14_HOME=$(/usr/libexec/java_home -v 14)
 
 alias java8='export JAVA_HOME=$JAVA_8_HOME'
 alias java9='export JAVA_HOME=$JAVA_9_HOME'
 alias java10='export JAVA_HOME=$JAVA_10_HOME'
+alias java11='export JAVA_HOME=$JAVA_11_HOME'
+alias java14='export JAVA_HOME=$JAVA_14_HOME'
 
+gitpr () { git fetch origin pull/$1/head:pr/$1 && git checkout pr/$1 }
+
+alias uscis='python ~/Desktop/Projects/uscis-bot/bot.py'
 #default java8
-export JAVA_HOME=$JAVA_8_HOME
+export JAVA_HOME=$JAVA_14_HOME
 
 export GOPATH=~/usr/local/go
+
+
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
